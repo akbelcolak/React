@@ -10,6 +10,7 @@ function App(props) {
                 <p data-testid="reading-length">
                     Reading all article will take you {props.calculateReadingLength && props.calculateReadingLength(props.articles.reduce((accumulator, article) => accumulator + article.text , ''))} minutes
                 </p>
+            
             ): null}
         </section>
     );
