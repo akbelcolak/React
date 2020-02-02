@@ -31,7 +31,7 @@ test('Given a new prop the app renders with a description', async () => {
 
     const element = await getByTestId('description');
 
-    expect(element).toBeDefined();
+    expect(element).toBeDefined(props.description);
 });
 
 test('Render with a state object using the spread operator ', async () => {

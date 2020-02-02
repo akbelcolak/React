@@ -20,6 +20,7 @@ function NewsArticle() {
         <article data-testid="news-article">
             <h1>Article</h1>
         </article>
+      
     );
 }
 

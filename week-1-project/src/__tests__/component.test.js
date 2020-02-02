@@ -19,6 +19,7 @@ test('The component App exist and can render', () => {
 
 test('The component MyApp can be imported and can render', () => {
     // Create a new component in component.js called MyApp
+
     // Export that component in component.js
 
     render(<MyApp />);
