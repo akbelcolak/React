@@ -279,7 +279,10 @@ const Ex11 = function () {
             </ul>
             <button onClick={() => {
                 /* update the state here */
-                setItems(default_list)
+               const i = [...default_list];
+            
+              // setItems( i[ (setIdx(idx+1)) ] );
+
 
             }}>
                 Add element
