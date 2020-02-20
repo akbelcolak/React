@@ -321,12 +321,11 @@ const Ex11 = function() {
     "rhoncizzle"
   ];
   const [items, setItems] = useState([]);
-  const [idx, setIdx] = useState(0); // i changed it 1 to 0 to start with first item 
-  
+  const [idx, setIdx] = useState(0); // i changed it 1 to 0 to start with first item
+
   // look each item in the default-list
   const manual = () => {
     default_list.map((ite, inde) => {
-     
       if (items[idx] === items[inde]) {
         items.push(ite);
         //setItems(items);
@@ -366,13 +365,17 @@ const Ex11 = function() {
 const Ex12 = function({ base_list }) {
   const [items, setItems] = useState([]);
   const [idx, setIdx] = useState(1);
+  
+   
+
   return (
     <div>
-      <ul>{/* render the items as an li here */}</ul>
+      <ul>
+        {/* render the items as an li here */
+        items.map((item, index) => ( <li key={index}>{item}</li> ))}
+      </ul>
       <button
-        onClick={() => {
-          /* update the state here */
-        }}
+        onClick={ () => { } }
       >
         Add element
       </button>
