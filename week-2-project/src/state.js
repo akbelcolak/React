@@ -362,20 +362,27 @@ const Ex11 = function() {
 // Goal
 // Same as previous exercice, but this time the list is passed as a props
 
+/* I dont know how to show the default_list as props-base_list
+that is why when I use slice I got error*/
+
 const Ex12 = function({ base_list }) {
   const [items, setItems] = useState([]);
   const [idx, setIdx] = useState(1);
-  
-   
 
   return (
     <div>
       <ul>
         {/* render the items as an li here */
-        items.map((item, index) => ( <li key={index}>{item}</li> ))}
+        items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
       </ul>
       <button
-        onClick={ () => { } }
+        onClick={() => {
+          //const manual = base_list.slice(0, idx)
+          //setItems(manual);
+          setIdx(idx + 1);
+        }}
       >
         Add element
       </button>
@@ -402,19 +409,28 @@ const Ex13 = function() {
     "rhoncizzle"
   ];
   const [items, setItems] = useState([]);
-  const [idx, setIdx] = useState(1);
+  const [idx, setIdx] = useState(0);
   return (
     <div>
-      <ul>{/* render the items as an li here */}</ul>
+      <ul>
+        {items.map( (item,index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
       <button
         onClick={() => {
-          /* update the state here */
+          setIdx(idx+1);
+          let manual = default_list.slice(0, idx+1);
+          setItems(manual);
         }}
       >
         Add element
       </button>
       <button
         onClick={() => {
+          setIdx(idx-1);
+          let manual = default_list.slice(0, idx-1);
+          setItems(manual);
           /* update the state here */
         }}
       >
@@ -423,7 +439,6 @@ const Ex13 = function() {
     </div>
   );
 };
-
 // Exercise 14
 // Setup
 // Same as Ex13
