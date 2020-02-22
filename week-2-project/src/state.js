@@ -445,15 +445,21 @@ const Ex13 = function() {
 // Goal
 // Same as previous ex, but this time the list is passed as a props
 
+//the same problem wuth ex 12, I dont know how to define the list inside the props
 const Ex14 = function({ base_list }) {
   const [items, setItems] = useState([]);
   const [idx, setIdx] = useState(1);
   return (
     <div>
-      <ul>{/* render the items as an li here */}</ul>
+      <ul>{/* render the items as an li here */
+        items.map((item,index)=> <li key={index}>{item}</li>)
+      }</ul>
       <button
         onClick={() => {
           /* update the state here */
+          setIdx(idx+1)
+          let manual = base_list.slice(0,idx+1)
+          setItems(manual)
         }}
       >
         Add element
