@@ -458,7 +458,7 @@ const Ex14 = function({ base_list }) {
         onClick={() => {
           /* update the state here */
           setIdx(idx+1)
-          let manual = base_list.slice(0,idx+1)
+          let manual = {base_list}.slice(0,idx+1)
           setItems(manual)
         }}
       >
