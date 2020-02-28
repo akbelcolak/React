@@ -115,8 +115,10 @@ test('Passing functions as props ', async () => {
         ],
         calculateReadingLength: (text) => {
             const wordsPerMinute = 200;
-            const words = text.split(' ').length;
-            return Math.ceil(words / wordsPerMinute);
+            const words = text.split(" ").length;
+            const length = Math.ceil(words / wordsPerMinute);
+            if (length > 1) return `${length} minutes`;
+            return `${length} minute`
         }
     };
 
