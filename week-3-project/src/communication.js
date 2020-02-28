@@ -12,6 +12,8 @@ const InterActiveFruits = () => {
     const fruits = ['banana', 'apple'];
 
     const [grid, setGrid] = useState([]);
+    const [bounce, setBounce] = useState(false);
+    const [rotate, setRotate] = useState(false);
 
     // On click generate a grid of fruits
     const handleGenerateClick = () => {
@@ -31,6 +33,16 @@ const InterActiveFruits = () => {
         setGrid(grid);
     };
 
+    function handleBounce () {
+        if (bounce === true){setBounce(false)}
+        else{setBounce(true)}  
+    }
+
+    function handleRorate () {
+        if (rotate === true) {setRotate(false)}
+        else{setRotate(true)}
+    }
+
     return (
         <section>
             <table>
@@ -43,7 +55,7 @@ const InterActiveFruits = () => {
                                     row.map((fruit, columnIndex) => {return (
                                         <td key={`${rowIndex}_${columnIndex}_${fruit}`}>
                                             {/* TODO: Add state variables for bounce and rotate, assign them here */}
-                                            <InterActiveFruit key={`${rowIndex}_${columnIndex}_${fruit}`} name={fruit} bounce={false} rotate={false} />
+                                            <InterActiveFruit key={`${rowIndex}_${columnIndex}_${fruit}`} name={fruit} bounce={bounce} rotate={rotate} />
                                         </td>
                                     )})
                                 }
@@ -55,8 +67,8 @@ const InterActiveFruits = () => {
             </table>
             <button onClick={handleGenerateClick}>Generate</button>
             {/* TODO: Add a click handler for bounce and rotate */}
-            <button>Bounce</button>
-            <button>Rotate</button>
+            <button onClick={handleBounce} >Bounce</button>
+            <button onClick={handleRorate} >Rotate</button>
         </section>
     )
 };
