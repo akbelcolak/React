@@ -34,8 +34,8 @@ const InterActiveFruits = () => {
     };
 
     function handleBounce () {
-        if (bounce === true){setBounce(false)}
-        else{setBounce(true)}  
+        if (bounce === false){setBounce(true)}
+        else{setBounce(false)}  
     }
 
     function handleRorate () {
@@ -135,8 +135,12 @@ const InterActiveFruit = ({ name, bounce, rotate }) => {
 const FruitApp = () => {
     const [fruits, setFruits] = useState([]);
 
-    const onSubmit = () => {
+    const onSubmit = (eachFruit) => {
         /* update the fruits here */
+        //fruits.push("orange")
+        fruits.push(eachFruit)
+        let copyFruits = [...fruits]
+        setFruits(copyFruits)
     };
 
     return (
