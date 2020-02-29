@@ -295,7 +295,7 @@ const FruitsAndVegetables = () => {
                 ))}
             </p>
             {/* You should add a property here, a unique key so the input updates when the configuration changes */}
-            <ProduceInput defaultProduce={activeConfiguration.default} />
+            <ProduceInput key={activeConfiguration.default}  defaultProduce={activeConfiguration.default} />
         </div>
     );
 };
