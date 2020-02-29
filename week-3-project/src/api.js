@@ -57,12 +57,14 @@ const InteractivePokedex = () => {
     // But is is an example of another type of hook
     // For now it is unimportant to know how it works exactly
     // Just know that it executes the function once on first render
-    useEffect(() => {
+    useEffect(async() => {
         const fetchPokemons = () => {
             return fetch('https://pokeapi.co/api/v2/pokedex/2/')
                 .then(response => response.json())
                 .then(json => json.pokemon_entries);
         };
+        const fetchedPokemons = await fetchPokemons()
+        setPokemons(fetchedPokemons);
         /* Use the result of the fetchPokemons function */
         /* set the result using setPokemons, be sure to support the render below */
     }, []);
