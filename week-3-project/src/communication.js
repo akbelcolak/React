@@ -169,6 +169,9 @@ const Fruit = ({ name }) => {
     else if (name === 'apple') {
         fruitMoji = '🍎'
     }
+    else if (name === 'orange') { //I have copy paste the moji. where should I take it?
+        fruitMoji = '🍊'
+    }
 
     return <span data-testid="fruit">{fruitMoji}</span>
 };
@@ -177,7 +180,7 @@ const FruitForm = ({ onSubmitHandler }) => {
     const [fruit, setFruit] = useState('');
 
     const isValidFruit = (fruitInput) => {
-        return fruitInput === 'apple' || fruitInput === 'banana';
+        return fruitInput === 'apple' || fruitInput === 'banana' || fruitInput === 'orange';
     };
 
     const onSubmit = (event) => {
@@ -192,7 +195,7 @@ const FruitForm = ({ onSubmitHandler }) => {
         <section className="contact">
             <form onSubmit={onSubmit}>
                 <div className="field">
-                    <label htmlFor="email">Banana or Apple</label> <br />
+                    <label htmlFor="email">Banana or Apple + bonus Orange</label> <br />
                     <input
                         id="name"
                         type="text"
