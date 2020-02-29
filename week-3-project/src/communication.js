@@ -172,6 +172,9 @@ const Fruit = ({ name }) => {
     else if (name === 'orange') { //I have copy paste the moji. where should I take it?
         fruitMoji = '🍊'
     }
+    else if (name === 'peach') {
+        fruitMoji = '🍑'
+    }
 
     return <span data-testid="fruit">{fruitMoji}</span>
 };
@@ -180,7 +183,7 @@ const FruitForm = ({ onSubmitHandler }) => {
     const [fruit, setFruit] = useState('');
 
     const isValidFruit = (fruitInput) => {
-        return fruitInput === 'apple' || fruitInput === 'banana' || fruitInput === 'orange';
+        return fruitInput === 'apple' || fruitInput === 'banana' || fruitInput === 'orange' || fruitInput === 'peach';
     };
 
     const onSubmit = (event) => {
@@ -221,13 +224,15 @@ const FruitAppWithBalance = () => {
 
     const onSubmitHandler = (fruit) => {
         /* update the fruits here */
+        fruits.push(fruit)
+        setFruits([...fruits])
     };
 
     return (
         <section className={'fruit'}>
             <FruitForm onSubmitHandler={onSubmitHandler} />
             <FruitList fruits={fruits} />
-            /* Render the component FruitBalance here with the correct prop */
+            <FruitBalance fruits={fruits} />
         </section>
     )
 };
@@ -235,10 +240,16 @@ const FruitAppWithBalance = () => {
 const FruitBalance = ({ fruits = [] }) => {
     const bananas = fruits.filter(fruit => fruit === 'banana');
     const apples = fruits.filter(fruit => fruit === 'apple');
+    const oranges = fruits.filter(fruit => fruit === 'oranges');
+    const peaches = fruits.filter(fruit => fruit === 'peaches')
 
     let message = 'Eat more bananas';
     if (bananas.length > apples.length) {
         message = 'Eat more apples';
+    } if (peaches.length > oranges.length) {
+        message = 'peaches taste good'
+    } if (peaches.length < oranges.lengt) {
+        message = 'prefer vitamin C ? take some A to balance it'
     }
 
     return (
