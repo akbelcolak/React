@@ -53,10 +53,7 @@ const Pokemon = (props) => {
 const InteractivePokedex = () => {
     const [pokemons, setPokemons] = useState([]);
     const [selectedPokemon, setSelectedPokemon] = useState(false);
-    // This use effect might be confusing
-    // But is is an example of another type of hook
-    // For now it is unimportant to know how it works exactly
-    // Just know that it executes the function once on first render
+    
     useEffect(async() => {
         const fetchPokemons = () => {
             return fetch('https://pokeapi.co/api/v2/pokedex/2/')
@@ -73,6 +70,8 @@ const InteractivePokedex = () => {
             return fetch(pokemon.url)
                 .then(response => response.json());
         };
+        const selected = await fetchPokemon()
+        setSelectedPokemon(selected);
         /* Use the result of the fetchPokemon function */
         /* set the result using selectedPokemon, be sure to support the render below */
     };
@@ -82,7 +81,7 @@ const InteractivePokedex = () => {
             {
                 selectedPokemon === false
                 ? (
-                    pokemons.map(pokemon => <InterActivePokemon key={pokemon.entry_number} {...pokemon} /* pass the onSelectHandler here a property */ />)
+                    pokemons.map(pokemon => <InterActivePokemon key={pokemon.entry_number} {...pokemon} onSelectHandler={onSelectHandler}/* pass the onSelectHandler here a property */ />)
                 )
                 : (
                     <DetailedPokemon {...selectedPokemon} />
@@ -101,10 +100,11 @@ const DetailedPokemon = ({ flavor_text_entries }) => {
 const InterActivePokemon = ({ pokemon_species, onSelectHandler }) => {
     const onClick = () => {
         /* trigger the onSelectedHandler function with the pokemon_species */
+        onSelectHandler(pokemon_species)
     };
     return (
         <article>
-            {/* Render the property here */}
+            {pokemon_species}
             <button onClick={onClick}>Learn more</button>
         </article>
     )
