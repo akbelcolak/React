@@ -104,7 +104,7 @@ const InterActivePokemon = ({ pokemon_species, onSelectHandler }) => {
     };
     return (
         <article>
-            {pokemon_species}
+            {pokemon_species.name}
             <button onClick={onClick}>Learn more</button>
         </article>
     )
