@@ -6,36 +6,16 @@ function Eight() {
   let splittedSentenceArray = sentence.split(" ");
 
   const [word, setWord] = useState([]);
-  const [index, setIndex] = useState(1)
 
-  
-  //console.log(splittedSentenceArray)
-  //let silicedArray = sentence.split(0,index)
-  //console.log(silicedArray)
-
-  const manual = () => {
-      splittedSentenceArray.map( (w, i) => {
-          if(word[index] === word[i]) {
-              word.push(w)
-              setIndex(i + 1)
-          }
-      })
-  }
   
 
   return (
     <div>
-      <p> {word} </p>
+      <p> </p>
 
       <button> Previous </button>
 
-      <button
-        onClick={() => {
-          setWord(manual);
-        }}
-      >
-        Next
-      </button>
+      <button> Next </button>
     </div>
   );
 }
